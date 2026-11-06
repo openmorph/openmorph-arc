@@ -1,0 +1,5 @@
+# self_directed — active inference: the organism GENERATES its own goals (orient), pursues them (relax_values),
+# and REWARDS itself for reaching them (goal_reward). No external reward needed to build competence. Pair with
+# orient()/orient_many() + relax_values() in the loop.
+epistemic_weight: 0.5
+goal_reward: 1.0

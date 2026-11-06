@@ -1,0 +1,44 @@
+[package]
+name = "openmorph-core"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+keywords.workspace = true
+categories.workspace = true
+license = "MIT-0"
+description = "The digital organism — the async membrane substrate (Field + Membrane): cells that fire on change, settle with no tick, grow their own transducers, learn, act, and live on an energy economy. Zero ML dependencies."
+# The integration tests are consolidated into themed binaries (one `mod` per proof file, see each
+# `tests/<tier>/main.rs`): declared below, so cargo does not also auto-discover `tests/*.rs`.
+autotests = false
+
+# `std` (default) = the historical build, byte-identical. Build with `--no-default-features` for BARE-METAL
+# (`#![no_std] + alloc`): transcendentals come from `num-traits`/`libm`, maps from `alloc::collections` (BTree).
+[features]
+default = ["std"]
+std = ["serde/std", "thiserror/std", "num-traits/std", "serde_json/std"]
+
+[dependencies]
+serde = { version = "1", default-features = false, features = ["derive", "alloc"] }
+thiserror = { version = "2", default-features = false }
+num-traits = { version = "0.2", default-features = false, features = ["libm"] }
+serde_json = { version = "1", default-features = false, features = ["alloc"] } # the snapshot envelope payload
+
+[dev-dependencies]
+serde_json = { workspace = true }
+bincode = { workspace = true } # the onnx `.morph` wire format — `tests/proofs/substrate_snapshot_continue.rs`
+
+[[test]]
+name = "proofs"
+path = "tests/proofs/main.rs"
+
+[[test]]
+name = "stress"
+path = "tests/stress/main.rs"
+
+[[test]]
+name = "research"
+path = "tests/research/main.rs"

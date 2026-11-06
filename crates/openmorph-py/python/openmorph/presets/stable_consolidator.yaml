@@ -1,0 +1,5 @@
+# stable_consolidator — continual learning without catastrophic forgetting: reliability-gated consolidation freezes
+# matured skills and low plasticity protects them (the default valence rule keeps its learned option values without
+# decay). Train skills, let them crystallise, then add more on top.
+consolidation_rate: 0.2
+feature_lr: 0.01

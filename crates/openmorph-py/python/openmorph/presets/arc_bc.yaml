@@ -1,0 +1,11 @@
+# arc_bc — ARC-3 behaviour cloning (MorphBot best-score). Turns on feature-direction learning (#125, the lever
+# that moved the imitation/BC wall) plus fan-in normalisation, momentum, the free-energy acting rule (argmin G), and
+# a 4-D concept map. Apply to a RecurrentActor (via .configure) BEFORE behaviour-cloning human demos,
+# and to the Morph heads.
+max_hidden: 16
+feature_lr: 0.02
+lr_fanin_norm: true
+gain_fanin_norm: true
+init_momentum: 0.7
+act_rule: FreeEnergy
+pos_dim_init: 4

@@ -1,0 +1,12 @@
+# legacy — the pre-1.6 learning genome, mirroring Rust `Config::legacy()`: the raw delta step with the fan-in-128
+# auto-normalization, random feature directions, the fan-in-blind feature init, the absolute reliance economy and
+# unbounded growth. Use it to replay an organism grown before 1.6 or to reproduce a pre-1.6 result (the 1.6
+# correctness fixes stay on under it, so the replay is exact only where those fixed bugs did not fire). It acts with
+# the default valence rule: the pre-1.6 act_score rule is removed, so an organism that acts does not replay its
+# pre-1.6 choices.
+stability_cap: 0.0
+width_norm_min: 128
+feature_lr: 0.0
+fanin_init_gain: 0.0
+reliance_norm: Absolute
+grow_within_budget: false

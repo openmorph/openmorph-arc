@@ -1,0 +1,6 @@
+# metric_reasoner — sharp analogy / few-shot / concept-map reasoning. A wider, metric-faithful concept map
+# (pos_dim_init 4) with feature-direction learning, for exact analogy (C + (B - A)) and 1-example transfer.
+pos_dim_init: 4
+metric_repel_softening: 1.0
+feature_lr: 0.02
+max_hidden: 16

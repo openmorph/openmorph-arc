@@ -1,0 +1,6 @@
+# fast_adapt — quick online adaptation: feature-direction learning + heavy-ball momentum + more grown depth, so a
+# few examples move the policy. For non-stationary tasks or rapid few-shot fitting.
+feature_lr: 0.05
+init_momentum: 0.7
+max_hidden: 16
+lr_fanin_norm: true

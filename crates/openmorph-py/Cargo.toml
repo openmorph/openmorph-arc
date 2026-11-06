@@ -1,0 +1,24 @@
+# SPDX-License-Identifier: MIT-0
+# Standalone package (excluded from the root workspace) — built with maturin, not `cargo build --workspace`.
+[package]
+name = "openmorph-py"
+version = "1.8.0"
+edition = "2021"
+rust-version = "1.87"
+authors = ["Sebastien MATHIEU <sebastien@morphe.ai>"]
+repository = "https://github.com/openmorph/openmorph-arc"
+homepage = "https://github.com/openmorph/openmorph-arc"
+description = "OpenMorph Python bindings — a Morph in Python (pip install openmorph)"
+license = "MIT-0"
+readme = "README.md"
+keywords = ["ai", "organism", "learning", "python", "bindings"]
+categories = ["science", "api-bindings"]
+
+[lib]
+name = "openmorph"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+openmorph-core = { path = "../openmorph-core" }
+pyo3 = { version = "0.22", features = ["extension-module", "abi3-py38"] }
+serde_json = "1"

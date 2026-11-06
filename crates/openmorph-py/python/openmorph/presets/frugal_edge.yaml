@@ -1,0 +1,5 @@
+# frugal_edge — microcontroller / tight-compute budget. Small grown capacity, a low energy cap, and aggressive
+# upkeep so the reliance economy culls hard. CPU-native down to an MCU.
+max_hidden: 8
+energy_cap: 4.0
+pool_upkeep: 0.5

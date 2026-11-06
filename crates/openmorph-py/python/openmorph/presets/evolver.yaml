@@ -1,0 +1,6 @@
+# evolver — evolutionary / heritable-trait tuning. Higher mutation seed + a looser self-adaptive tau let a
+# population of learners tune their own scale/lr/momentum by competition through the energy account — no external
+# schedule. For populations, breeding, and self-tuning constants.
+init_mut_rate: 0.5
+self_adapt_tau: 0.6
+pool_income: 2.0

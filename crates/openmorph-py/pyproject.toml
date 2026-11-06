@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: MIT-0
+[build-system]
+requires = ["maturin>=1.5,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "openmorph"
+description = "OpenMorph — digital organisms that learn, grow, and compose, from Python"
+requires-python = ">=3.8"
+license = { text = "MIT-0" }
+authors = [{ name = "Sebastien Mathieu", email = "sebastien@morphe.ai" }]
+readme = "README.md"
+keywords = ["artificial-life", "digital-organism", "learning", "openmorph"]
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = ["numpy>=1.21"]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://openmorph.org"
+Documentation = "https://docs.openmorph.org"
+Repository = "https://github.com/openmorph/openmorph-arc"
+
+[tool.maturin]
+# Mixed Rust+Python layout: the Rust core compiles to `openmorph._core`; the ergonomic, PyTorch-like
+# Python API lives in `python/openmorph/` and re-exports it. So `pip install openmorph` ships both.
+features = ["pyo3/extension-module"]
+python-source = "python"
+module-name = "openmorph._core"
+# ship the Config preset YAMLs as package data so `load_preset`/`apply_preset` work from an installed wheel
+include = ["python/openmorph/presets/*.yaml"]

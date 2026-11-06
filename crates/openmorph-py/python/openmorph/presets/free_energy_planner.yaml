@@ -1,0 +1,7 @@
+# free_energy_planner — the unified free-energy actor: G = (mu - s*)^2 - sigma^2 over a grown value ensemble,
+# acted on by argmin G. One functional covers the deceptive bandit (needs the epistemic sigma^2) AND a planner's
+# value field. No epsilon / no beta schedule. A SET-POINT matcher (it prefers the reward nearest s*, not the
+# largest) — for reward maximisation keep the default valence rule.
+act_rule: FreeEnergy
+free_energy_ensemble: 8
+free_energy_prior_std: 1.0

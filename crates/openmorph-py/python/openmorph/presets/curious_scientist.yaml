@@ -1,0 +1,14 @@
+# curious_scientist — exploration-driven, on the default valence rule. A larger, longer-lived exploration bonus
+# (free_energy_prior_std 1.5: an untried option's bonus is 2.25, not 1; free_energy_lr 0.1: it anneals more slowly
+# per visit), a TD discount so the bonus of an unexplored state flows back along the path to it (deep exploration;
+# for a multi-step task: on a bandit whose caller never ends an episode with act([], last) it bootstraps an arm
+# from itself), and a strong epistemic (learning-progress) weight on self-set goals (orient) that chases REDUCIBLE
+# surprise, not the noisy-TV / dark-room trap. Measured on actor_bench (40 seeds, the CURIOUS row) against the
+# default: deceptive-noisy regret 463 -> 280 (best arm in the last 20% of steps 5% -> 36%), chain 0% -> 100%, grid
+# 27% -> 100% (25 steps; the default with act_discount alone also reaches 100%, in 14). It pays where the default
+# already finds the answer fast: deceptive-proof regret 7.2 -> 23.4, xor 8.2 -> 22.0, ctxcont 213 -> 352. For
+# discovery and open-ended play.
+free_energy_prior_std: 1.5
+free_energy_lr: 0.1
+act_discount: 0.9
+epistemic_weight: 0.9

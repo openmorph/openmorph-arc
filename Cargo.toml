@@ -1,0 +1,34 @@
+# SPDX-License-Identifier: MIT-0
+# openmorph-arc: openmorph-core is the workspace; the Python binding is standalone (maturin).
+[workspace]
+resolver = "2"
+members = ["crates/openmorph-core"]
+exclude = ["crates/openmorph-py"]
+
+[workspace.package]
+version = "1.8.0"
+edition = "2021"
+rust-version = "1.87"
+license = "MIT-0"
+repository = "https://github.com/openmorph/openmorph-arc"
+homepage = "https://github.com/openmorph/openmorph-arc"
+documentation = "https://github.com/openmorph/openmorph-arc"
+authors = ["Sebastien MATHIEU <sebastien@morphe.ai>"]
+description = "Digital Organisms — artificial life that grows from experience"
+keywords = ["ai", "organism", "learning", "artificial-life", "evolution"]
+categories = ["science", "algorithms"]
+
+[workspace.dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+bincode = "1"                                            # PINNED — do not bump; bincode 2/3 change the wire encoding, breaking existing .morph files + mycelium content-address hashes (see #14)
+chrono = { version = "0.4", features = ["serde"] }
+thiserror = "2"
+log = "0.4"
+clap = { version = "4", features = ["derive"] }
+tempfile = "3"
+
+[profile.dev.package.openmorph-core]
+opt-level = 2
+
+
