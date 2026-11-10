@@ -52,6 +52,11 @@ python arc-agi-3/kit-ru/build_notebook.py --check
 cargo test -p openmorph-core     # the organism's own proofs
 ```
 
+## Company and contact
+
+OpenMorph is built by Morphe.ai (Morphic Intelligence Limited, New Zealand). Company, investors and contact:
+https://morphe.ai
+
 ## Licence
 
 MIT-0 (MIT No Attribution), `LICENSE-MIT0`. Copyright (c) 2026 Petitgen Limited. Patent pending (NZ provisional,
